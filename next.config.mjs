@@ -13,6 +13,7 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // 이 부분을 추가했습니다 - Cloudflare Pages 배포를 위한 정적 내보내기 설정
   eslint: {
     ignoreDuringBuilds: true,
   },
