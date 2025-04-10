@@ -7,13 +7,19 @@ import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { Facebook, Instagram } from "lucide-react"
-import LaunchAlert from "@/components/launch-alert"
+import { Facebook, Instagram } from 'lucide-react'
+import dynamic from "next/dynamic"
+
+// 동적 임포트로 LaunchAlert 컴포넌트 로드
+const LaunchAlert = dynamic(() => import("@/components/launch-alert"), {
+  ssr: false,
+})
 
 export default function ColumnSignupPage() {
   const [isAlertOpen, setIsAlertOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [errorMessage, setErrorMessage] = useState("")
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,13 +42,16 @@ export default function ColumnSignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrorMessage("")
 
     try {
-      // Make.com 웹훅 URL로 데이터 전송
-      const response = await fetch("https://hook.make.com/your-webhook-url-here", {
+      // 실제 Make.com 웹훅 URL로 직접 데이터 전송
+      const response = await fetch("https://hook.us2.make.com/81b1jf08oeakdjlaojhkn4xgoundju1t", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          // CORS 문제 해결을 위한 추가 헤더
+          "Access-Control-Allow-Origin": "*",
         },
         body: JSON.stringify(formData),
       })
@@ -58,11 +67,14 @@ export default function ColumnSignupPage() {
         })
       } else {
         // 에러 처리
-        console.error("Form submission failed")
+        const data = await response.json().catch(() => ({ message: "Unknown error" }))
+        console.error("Form submission failed:", data.message || "Unknown error")
+        setErrorMessage(data.message || "Form submission failed. Please try again later.")
         alert("죄송합니다. 문제가 발생했습니다. 나중에 다시 시도해주세요.")
       }
     } catch (error) {
       console.error("Error submitting form:", error)
+      setErrorMessage("An unexpected error occurred. Please try again later.")
       alert("죄송합니다. 문제가 발생했습니다. 나중에 다시 시도해주세요.")
     } finally {
       setIsSubmitting(false)
@@ -132,6 +144,9 @@ export default function ColumnSignupPage() {
                   <option value="relationship">In a Relationship</option>
                   <option value="breakup">Post-Breakup</option>
                 </select>
+
+                {errorMessage && <div className="bg-red-50 text-red-600 p-3 rounded-md text-sm">{errorMessage}</div>}
+
                 <Button
                   type="submit"
                   className="w-full bg-rose-500 hover:bg-rose-600 rounded-full h-12 font-medium text-base"
@@ -206,7 +221,7 @@ export default function ColumnSignupPage() {
           <p className="text-sm text-gray-400">© 2025 TTM AI LLC. All rights reserved.</p>
         </div>
       </footer>
-      <LaunchAlert isOpen={isAlertOpen} onClose={() => setIsAlertOpen(false)} />
+      {isAlertOpen && <LaunchAlert isOpen={isAlertOpen} onClose={() => setIsAlertOpen(false)} />}
     </div>
   )
 }
