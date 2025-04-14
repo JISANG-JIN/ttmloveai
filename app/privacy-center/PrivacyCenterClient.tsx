@@ -430,7 +430,7 @@ export default function PrivacyCenterClient() {
               <Facebook className="h-4 w-4 text-white" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ttmloveai/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon-btn w-9 h-9"
