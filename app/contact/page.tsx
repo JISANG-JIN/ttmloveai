@@ -78,7 +78,7 @@ export default function ContactPage() {
                   <span>Facebook</span>
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/ttmloveai/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gray-800 hover:bg-rose-600 text-white py-2 px-4 rounded-md transition-colors"
