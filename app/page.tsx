@@ -678,7 +678,7 @@ export default function Home() {
                   <Facebook className="h-5 w-5 text-white" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/ttmloveai/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-icon-btn w-10 h-10"
