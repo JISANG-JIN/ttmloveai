@@ -69,7 +69,7 @@ export default function ContactPage() {
 
               <div className="flex gap-4">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/share/18hWcMxFH9/?mibextid=wwXIfr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gray-800 hover:bg-rose-600 text-white py-2 px-4 rounded-md transition-colors"
