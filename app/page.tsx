@@ -669,7 +669,7 @@ export default function Home() {
               {/* 푸터 소셜 아이콘 수정 */}
               <div className="flex items-center gap-4 mt-5">
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/profile.php?id=61575092378460"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-icon-btn w-10 h-10"
