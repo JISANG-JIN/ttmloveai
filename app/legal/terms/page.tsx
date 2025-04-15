@@ -155,7 +155,7 @@ export default function TermsOfServicePage() {
           </div>
           <div className="flex justify-center gap-3 mb-4">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/18hWcMxFH9/?mibextid=wwXIfr"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon-btn w-9 h-9"
