@@ -67,6 +67,9 @@ export const metadata: Metadata = {
     apple: "/images/logo.png",
   },
     generator: 'v0.dev'
+verification: {
+    google: "<meta name="google-site-verification" content="QU3j2AuIDOLJP2pyCPlg5d4GfXYhr4nwrpRaK6SVTIU" />",
+  },
 }
 
 // 언어 설정 변경
