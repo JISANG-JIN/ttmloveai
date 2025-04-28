@@ -26,6 +26,7 @@ import {
   Shuffle,
   Facebook,
   Instagram,
+  Calendar,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -40,6 +41,10 @@ export default function Home() {
     e.preventDefault()
     setIsAlertOpen(true)
   }
+
+  // 구글 폼 URL - 실제 구글 폼 URL로 교체하세요
+  const googleFormUrl =
+    "https://docs.google.com/forms/d/e/1FAIpQLSdwpw_ywGuPOOK0L1PVKeWVYrZUm8GHSm7z-Z-21ntOzwPRWw/viewform?usp=header"
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -80,6 +85,85 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 새로운 무료 상담 이벤트 섹션 */}
+        <section className="py-16 bg-gradient-to-r from-indigo-50 to-rose-50">
+          <div className="container">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="inline-block bg-white px-4 py-1 rounded-full mb-4">
+                <span className="text-rose-500 font-medium text-sm">Limited Time Offer</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-6">
+                Free Relationship Consultation Event
+              </h2>
+              <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                For a limited time, our relationship experts are offering free consultations to help you navigate your
+                relationship challenges. Spaces are limited!
+              </p>
+
+              <div className="grid md:grid-cols-3 gap-6 mb-10">
+                <div className="bg-white p-6 rounded-xl shadow-soft text-center">
+                  <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Calendar className="h-6 w-6 text-rose-500" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">Expert Session</h3>
+                  <p className="text-gray-600">One-on-one consultation with our relationship experts</p>
+                </div>
+
+                <div className="bg-white p-6 rounded-xl shadow-soft text-center">
+                  <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <MessageCircle className="h-6 w-6 text-rose-500" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">Personalized Advice</h3>
+                  <p className="text-gray-600">Get tailored guidance for your specific relationship situation</p>
+                </div>
+
+                <div className="bg-white p-6 rounded-xl shadow-soft text-center">
+                  <div className="w-12 h-12 bg-rose-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <ArrowRight className="h-6 w-6 text-rose-500" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2">Next Steps</h3>
+                  <p className="text-gray-600">Clear action plan to improve your relationship immediately</p>
+                </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-xl shadow-md border border-rose-100 mb-8">
+                <h3 className="text-xl font-bold mb-4">How It Works</h3>
+                <ol className="text-left space-y-4">
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <span className="text-rose-500 font-medium text-sm">1</span>
+                    </span>
+                    <span>Fill out the consultation request form with your relationship details</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <span className="text-rose-500 font-medium text-sm">2</span>
+                    </span>
+                    <span>Our team will contact you to schedule your free consultation session</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="flex-shrink-0 w-6 h-6 bg-rose-100 rounded-full flex items-center justify-center mr-3 mt-0.5">
+                      <span className="text-rose-500 font-medium text-sm">3</span>
+                    </span>
+                    <span>Meet with our expert and receive personalized relationship advice</span>
+                  </li>
+                </ol>
+              </div>
+
+              <a href={googleFormUrl} target="_blank" rel="noopener noreferrer" className="inline-block">
+                <Button
+                  size="lg"
+                  className="bg-rose-500 hover:bg-rose-600 rounded-full px-8 py-6 h-auto font-medium text-lg shadow-md"
+                >
+                  Request Free Consultation
+                </Button>
+              </a>
+
+              <p className="text-sm text-gray-500 mt-4">Limited spots available. Offer valid until May 10, 2025.</p>
             </div>
           </div>
         </section>
@@ -637,6 +721,14 @@ export default function Home() {
                     service.
                   </AccordionContent>
                 </AccordionItem>
+                <AccordionItem value="item-4">
+                  <AccordionTrigger>How does the free consultation work?</AccordionTrigger>
+                  <AccordionContent>
+                    Our free consultation is a session with one of our relationship experts. After filling out the
+                    request form, our team will contact you to schedule your session. During the consultation, you'll
+                    receive personalized advice tailored to your specific relationship situation.
+                  </AccordionContent>
+                </AccordionItem>
                 <AccordionItem value="item-5">
                   <AccordionTrigger>When will the AI counseling service be launched?</AccordionTrigger>
                   <AccordionContent>
@@ -699,6 +791,16 @@ export default function Home() {
                 <li>
                   <a href="#" onClick={openAlert} className="text-gray-400 hover:text-white transition-colors">
                     AI Relationship Counseling
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={googleFormUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    Free Consultation
                   </a>
                 </li>
               </ul>
